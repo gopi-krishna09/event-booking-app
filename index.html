@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Event Services Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1> BookMyVibe </h1>
+    <div class="search-filter">
+      <input type="search" id="searchInput" placeholder="Search services…">
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="DJ">DJ</option>
+        <option value="Photographer">Photographer</option>
+        <option value="Caterer">Caterer</option>
+      </select>
+      <input type="number" id="minPrice" placeholder="Min Price">
+      <input type="number" id="maxPrice" placeholder="Max Price">
+      <select id="ratingFilter">
+        <option value="0">All Ratings</option>
+        <option value="1">1★</option>
+        <option value="2">2★</option>
+        <option value="3">3★</option>
+        <option value="4">4★</option>
+        <option value="5">5★</option>
+      </select>
+      <input type="text" id="locationFilter" placeholder="Location">
+    </div>
+  </header>
+
+  <main>
+    <div id="servicesGrid" class="grid"></div>
+  </main>
+
+  <!-- Service Detail Modal -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeDetail" class="close">&times;</span>
+      <h2 id="detailName"></h2>
+      <div class="carousel">
+        <button id="prevImg">&#10094;</button>
+        <img id="detailImg" src="" alt="Service Image">
+        <button id="nextImg">&#10095;</button>
+      </div>
+      <p id="detailDesc"></p>
+      <div id="reviewsSection"></div>
+      <div class="availability">
+        <h4>Availability Dates:</h4>
+        <ul id="availDates"></ul>
+      </div>
+      <button id="bookNowBtn">Book Now</button>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeBooking" class="close">&times;</span>
+      <form id="bookingForm">
+        <div class="step" data-step="1">
+          <h3>1. Select Date & Time</h3>
+          <input type="date" id="bookDate" required>
+          <input type="time" id="bookTime" required>
+          <div class="nav-buttons">
+            <button type="button" id="step1Next">Next</button>
+          </div>
+        </div>
+        <div class="step hidden" data-step="2">
+          <h3>2. Guest & Contact Info</h3>
+          <input type="number" id="guestCount" placeholder="Guests" min="1" required>
+          <input type="text" id="contactName" placeholder="Your Name" required>
+          <input type="email" id="contactEmail" placeholder="Your Email" required>
+          <div class="nav-buttons">
+            <button type="button" id="step2Back">Back</button>
+            <button type="button" id="step2Next">Next</button>
+          </div>
+        </div>
+        <div class="step hidden" data-step="3">
+          <h3>3. Confirm Booking</h3>
+          <div id="summary"></div>
+          <div class="nav-buttons">
+            <button type="button" id="step3Back">Back</button>
+            <button type="submit" id="confirmBtn">Confirm</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
